@@ -16,7 +16,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/assets/css/util.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
-    <title>Ecommerce</title>
+    <title>Feedback</title>
 
     @vite('resources/css/app.css')
 </head>
