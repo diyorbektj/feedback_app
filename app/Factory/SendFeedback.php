@@ -1,19 +1,17 @@
 <?php
 
-namespace App\Services;
+namespace App\Factory;
 
 use App\DTO\CreateFeedbackDTO;
-use App\Http\Requests\CreateFeedbackRequest;
 use App\Jobs\SendEmail;
 use App\Models\Feedback;
-use Database\Factories\FeedbackFactory;
 
-class SendFeedback
+class SendFeedback implements SendFeedbackInterface
 {
-    public function sendFeedback(CreateFeedbackRequest $request)
+
+    public function send($request)
     {
         Feedback::query()->create(CreateFeedbackDTO::toArray($request->validated()));
         dispatch(new SendEmail($request->validated()));
-        return 1;
     }
 }
